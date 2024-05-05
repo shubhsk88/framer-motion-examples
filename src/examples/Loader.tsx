@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
-
-export const LoaderAnimation = () => {
+export interface LoaderAnimationProps {
+  onClick?: () => void;
+}
+export const LoaderAnimation: React.FC<LoaderAnimationProps> = ({
+  onClick,
+}) => {
   return (
-    <div
-      className="loading fixed flex flex-col z-10
-     justify-center items-center bg-blue-700 gap-4 h-full text-slate-200 top-0 left-0 w-full"
-    >
-      <h3>Shubhi Animates</h3>
+    <motion.div layoutId="header" className="loading" onClick={onClick}>
+      <motion.h3 layoutId="logo">Cognite</motion.h3>
       <p>Is Loading...</p>
       <div>
         <motion.div
@@ -40,6 +41,6 @@ export const LoaderAnimation = () => {
           className="bg-yellow-400"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
